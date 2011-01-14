@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Render JSON Document</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-1.8.1.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+
+ 
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 85%;
+}
+</style>
+ 
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+
+<!-- These are the jqGrid JavaScripts -->
+<script src="http://www.trirand.com/blog/jqgrid/js/jquery-ui-1.8.1.custom.min.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/jquery.layout.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/ui.multiselect.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/jquery.tablednd.js" type="text/javascript"></script>
+<script src="http://www.trirand.com/blog/jqgrid/js/jquery.contextmenu.js" type="text/javascript"></script>
+
+
+</head>
+
+<table id="storyTbl"></table>
+<div id="pager"></div>
+<body>
+
+<script>
+jQuery("#storyTbl").jqGrid({
+   	url:'BDD.json',
+	datatype: "json",
+   	colNames:['Story Name','Story Path','Narrative'],
+   	colModel:[
+   	    {name:'name',index:'name',width:250},
+   		{name:'@path',index:'@path', width:500},
+   		{name:'narrative.inOrderTo',index:'narrative.inOrderTo', width:200},
+   	],
+   	rowNum:10,
+   	rowList:[10,20,30],
+   	pager: '#pager',
+   	sortname: 'id',
+    viewrecords: true,
+    sortorder: "desc",
+    jsonReader:{
+    	  root: "xref.stories",
+    	  page: "currpage",
+    	  total: "totalpages",
+    	  records: "totalrecords",
+    	  repeatitems: false,
+    	  id: "0",
+    	},
+    loadonce:true,
+    caption:"JSON Example",
+});
+jQuery("#storyTbl").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+</script>
+</body>
+</html>
