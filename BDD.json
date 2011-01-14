@@ -1,0 +1,369 @@
+{
+    "total": "1",
+    "page": "1",
+    "records": "1",
+    "xref": {
+        "stories": [
+            {
+                "@path": "org/jbehave/tutorials/etsy/stories/advanced_search.story",
+                "description": {
+                    "descriptionAsString": "" 
+                },
+                "meta": {
+                    "properties": [
+                        {
+                            "@name": "category",
+                            "@value": "advanced" 
+                        } 
+                    ] 
+                },
+                "narrative": {
+                    "inOrderTo": "show the advance cart functionality",
+                    "asA": "user",
+                    "iWantTo": "search for an item in a sub category" 
+                },
+                "scenarios": [
+                    {
+                        "@title": "Advanced Search",
+                        "meta": {
+                            "properties": [
+                                
+                            ] 
+                        },
+                        "steps": [
+                            "Given I am searching on Etsy.com",
+                            "When I specify the Knitting sub category",
+                            "And I search for hat",
+                            "Then there are search results" 
+                        ],
+                        "examplesTable": {
+                            "data": [
+                                
+                            ],
+                            "tableAsString": "",
+                            "headerSeparator": "|",
+                            "valueSeparator": "|",
+                            "ignorableSeparator": "|--",
+                            "headers": [
+                                
+                            ],
+                            "properties": [
+                                
+                            ],
+                            "trim": true 
+                        },
+                        "givenStories": {
+                            "givenStories": [
+                                
+                            ],
+                            "givenStoriesAsString": "",
+                            "examplesTable": {
+                                "data": [
+                                    
+                                ],
+                                "tableAsString": "",
+                                "headerSeparator": "|",
+                                "valueSeparator": "|",
+                                "ignorableSeparator": "|--",
+                                "headers": [
+                                    
+                                ],
+                                "properties": [
+                                    
+                                ],
+                                "trim": true 
+                            } 
+                        } 
+                    } 
+                ],
+                "name": "advanced_search.story" 
+            },
+            {
+                "@path": "org/jbehave/tutorials/etsy/stories/etsy_browse.story",
+                "description": {
+                    "descriptionAsString": "" 
+                },
+                "meta": {
+                    "properties": [
+                        {
+                            "@name": "category",
+                            "@value": "browsing" 
+                        } 
+                    ] 
+                },
+                "narrative": {
+                    "inOrderTo": "show the browsing cart functionality",
+                    "asA": "user",
+                    "iWantTo": "browse in a gallery" 
+                },
+                "scenarios": [
+                    {
+                        "@title": "Browsing around the site for items",
+                        "meta": {
+                            "properties": [
+                                
+                            ] 
+                        },
+                        "steps": [
+                            "Given I am on etsy.com",
+                            "When I want to browse through a treasury gallery",
+                            "!-- We don't care for the results, just the gallery",
+                            "Then results will be displayed in the gallery" 
+                        ],
+                        "examplesTable": {
+                            "data": [
+                                
+                            ],
+                            "tableAsString": "",
+                            "headerSeparator": "|",
+                            "valueSeparator": "|",
+                            "ignorableSeparator": "|--",
+                            "headers": [
+                                
+                            ],
+                            "properties": [
+                                
+                            ],
+                            "trim": true 
+                        },
+                        "givenStories": {
+                            "givenStories": [
+                                
+                            ],
+                            "givenStoriesAsString": "",
+                            "examplesTable": {
+                                "data": [
+                                    
+                                ],
+                                "tableAsString": "",
+                                "headerSeparator": "|",
+                                "valueSeparator": "|",
+                                "ignorableSeparator": "|--",
+                                "headers": [
+                                    
+                                ],
+                                "properties": [
+                                    
+                                ],
+                                "trim": true 
+                            } 
+                        } 
+                    } 
+                ],
+                "name": "etsy_browse.story" 
+            },
+            {
+                "@path": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "description": {
+                    "descriptionAsString": "" 
+                },
+                "meta": {
+                    "properties": [
+                        {
+                            "@name": "category",
+                            "@value": "basic" 
+                        } 
+                    ] 
+                },
+                "narrative": {
+                    "inOrderTo": "show the basic cart functionality",
+                    "asA": "user",
+                    "iWantTo": "add and remove items from the cart" 
+                },
+                "scenarios": [
+                    {
+                        "@title": "Item can be added to cart",
+                        "meta": {
+                            "properties": [
+                                
+                            ] 
+                        },
+                        "steps": [
+                            "Given that the cart is empty",
+                            "!-- We don't care for which item is added to the cart",
+                            "When I search for an item",
+                            "And an item is added to the cart",
+                            "Then the cart contains that item" 
+                        ],
+                        "examplesTable": {
+                            "data": [
+                                
+                            ],
+                            "tableAsString": "",
+                            "headerSeparator": "|",
+                            "valueSeparator": "|",
+                            "ignorableSeparator": "|--",
+                            "headers": [
+                                
+                            ],
+                            "properties": [
+                                
+                            ],
+                            "trim": true 
+                        },
+                        "givenStories": {
+                            "givenStories": [
+                                
+                            ],
+                            "givenStoriesAsString": "",
+                            "examplesTable": {
+                                "data": [
+                                    
+                                ],
+                                "tableAsString": "",
+                                "headerSeparator": "|",
+                                "valueSeparator": "|",
+                                "ignorableSeparator": "|--",
+                                "headers": [
+                                    
+                                ],
+                                "properties": [
+                                    
+                                ],
+                                "trim": true 
+                            } 
+                        } 
+                    },
+                    {
+                        "@title": "Item can be removed from cart",
+                        "meta": {
+                            "properties": [
+                                
+                            ] 
+                        },
+                        "steps": [
+                            "Given the cart contains one item",
+                            "When the item is removed",
+                            "Then the cart will be empty" 
+                        ],
+                        "examplesTable": {
+                            "data": [
+                                
+                            ],
+                            "tableAsString": "",
+                            "headerSeparator": "|",
+                            "valueSeparator": "|",
+                            "ignorableSeparator": "|--",
+                            "headers": [
+                                
+                            ],
+                            "properties": [
+                                
+                            ],
+                            "trim": true 
+                        },
+                        "givenStories": {
+                            "givenStories": [
+                                
+                            ],
+                            "givenStoriesAsString": "",
+                            "examplesTable": {
+                                "data": [
+                                    
+                                ],
+                                "tableAsString": "",
+                                "headerSeparator": "|",
+                                "valueSeparator": "|",
+                                "ignorableSeparator": "|--",
+                                "headers": [
+                                    
+                                ],
+                                "properties": [
+                                    
+                                ],
+                                "trim": true 
+                            } 
+                        } 
+                    } 
+                ],
+                "name": "etsy_cart.story" 
+            } 
+        ],
+        "stepMatches": [
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/advanced_search.story",
+                "scenarioTitle": "Advanced Search",
+                "step": "Given I am searching on Etsy.com",
+                "pattern": "I\\s+am\\s+searching\\s+on\\s+Etsy\\.com" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/advanced_search.story",
+                "scenarioTitle": "Advanced Search",
+                "step": "When I specify the Knitting sub category",
+                "pattern": "I\\s+specify\\s+the\\s+(.*)\\s+sub\\s+category" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/advanced_search.story",
+                "scenarioTitle": "Advanced Search",
+                "step": "And I search for hat",
+                "pattern": "I\\s+search\\s+for\\s+(.*)" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/advanced_search.story",
+                "scenarioTitle": "Advanced Search",
+                "step": "Then there are search results",
+                "pattern": "there\\s+are\\s+search\\s+results" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_browse.story",
+                "scenarioTitle": "Browsing around the site for items",
+                "step": "Given I am on etsy.com",
+                "pattern": "I\\s+am\\s+on\\s+etsy\\.com" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_browse.story",
+                "scenarioTitle": "Browsing around the site for items",
+                "step": "When I want to browse through a treasury gallery",
+                "pattern": "I\\s+want\\s+to\\s+browse\\s+through\\s+a\\s+treasury\\s+gallery" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_browse.story",
+                "scenarioTitle": "Browsing around the site for items",
+                "step": "Then results will be displayed in the gallery",
+                "pattern": "results\\s+will\\s+be\\s+displayed\\s+in\\s+the\\s+gallery" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be added to cart",
+                "step": "Given that the cart is empty",
+                "pattern": "that\\s+the\\s+cart\\s+is\\s+empty" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be added to cart",
+                "step": "When I search for an item",
+                "pattern": "I\\s+search\\s+for\\s+an\\s+item" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be added to cart",
+                "step": "And an item is added to the cart",
+                "pattern": "an\\s+item\\s+is\\s+added\\s+to\\s+the\\s+cart" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be added to cart",
+                "step": "Then the cart contains that item",
+                "pattern": "the\\s+cart\\s+contains\\s+that\\s+item" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be removed from cart",
+                "step": "Given the cart contains one item",
+                "pattern": "the\\s+cart\\s+contains\\s+one\\s+item" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be removed from cart",
+                "step": "When the item is removed",
+                "pattern": "the\\s+item\\s+is\\s+removed" 
+            },
+            {
+                "@storyPath": "org/jbehave/tutorials/etsy/stories/etsy_cart.story",
+                "scenarioTitle": "Item can be removed from cart",
+                "step": "Then the cart will be empty",
+                "pattern": "the\\s+cart\\s+will\\s+be\\s+empty" 
+            } 
+        ] 
+    } 
+} 
