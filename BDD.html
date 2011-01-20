@@ -38,13 +38,13 @@ html, body {
 
 <script>
 jQuery("#storyTbl").jqGrid({
-   	url:'BDD.json',
 	datatype: "json",
-   	colNames:['Story Name','Story Path','Narrative'],
+   	colNames:['i','Story Name','Story Path','Narrative'],
    	colModel:[
-   	    {name:'name',index:'name',width:250},
-   		{name:'@path',index:'@path', width:500},
-   		{name:'narrative.inOrderTo',index:'narrative.inOrderTo', width:200},
+		{name:'i',index:'i',hidden:true,editable:true,width:50},
+   	    {name:'name',index:'name',editable:true,width:250},
+   		{name:'@path',index:'@path',editable:true, width:500},
+   		{name:'narrative.inOrderTo',index:'narrative.inOrderTo',editable:true, width:200},
    	],
    	rowNum:10,
    	rowList:[10,20,30],
@@ -52,18 +52,57 @@ jQuery("#storyTbl").jqGrid({
    	sortname: 'id',
     viewrecords: true,
     sortorder: "desc",
-    jsonReader:{
-    	  root: "xref.stories",
-    	  page: "currpage",
-    	  total: "totalpages",
-    	  records: "totalrecords",
-    	  repeatitems: false,
-    	  id: "0",
-    	},
+		ondblClickRow: function(rowid, iRow, iCol, e){
+			    document.getElementById('dialog').title=jsonData.xref.stories[rowid].name;
+			    document.getElementById('dialog').innerHTML= 
+					"In Order To " + jsonData.xref.stories[rowid].narrative.inOrderTo + "<br>" +
+					"As a " + jsonData.xref.stories[rowid].narrative.asA + "<br>" +
+					"I want to " + jsonData.xref.stories[rowid].narrative.iWantTo; 
+			    $("#dialog").dialog();
+		   },
     loadonce:true,
-    caption:"JSON Example",
+    caption:"Story Navigator",
 });
+
 jQuery("#storyTbl").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+
+var jsonData;
+
+$.getJSON('http://localhost:8000/BDD.json', function(data) {
+  jsonData = data;
+	$.each(data.xref.stories,function(i,story) {
+		var grid = jQuery("#storyTbl");
+		story.i = i;
+		grid.addRowData(i,story)
+	});
+});
+  
+
+
 </script>
+<div id="dialog" title="Dialog Title" style="display:none">
+	<table border=1>
+	  <tr>
+	    <td>Name</td>
+	    <td>"As a <user> I want to ..."</td>
+	  </tr>
+	  <tr>
+	    <td>Path</td>
+	    <td>jjdd/jddhdhd/hdhdhdh/hhdhd.fil</td>
+	  </tr>
+	  <tr>
+	    <td>In Order To</td>
+	    <td id="inOrderTo"></td>
+	  </tr>
+	  <tr>
+	    <td>As a</td>
+	    <td id="asA"></td>
+	  </tr>
+	  <tr>
+	    <td>I want to</td>
+	    <td id="iWantTo"></td>
+	  </tr>
+	</table>
+</div>
 </body>
 </html>
