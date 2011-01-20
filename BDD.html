@@ -54,10 +54,9 @@ jQuery("#storyTbl").jqGrid({
     sortorder: "desc",
 		ondblClickRow: function(rowid, iRow, iCol, e){
 			    document.getElementById('dialog').title=jsonData.xref.stories[rowid].name;
-			    document.getElementById('dialog').innerHTML= 
-					"In Order To " + jsonData.xref.stories[rowid].narrative.inOrderTo + "<br>" +
-					"As a " + jsonData.xref.stories[rowid].narrative.asA + "<br>" +
-					"I want to " + jsonData.xref.stories[rowid].narrative.iWantTo; 
+			    document.getElementById('inOrderTo').innerHTML=jsonData.xref.stories[rowid].narrative.inOrderTo;
+				document.getElementById('asA').innerHTML=jsonData.xref.stories[rowid].narrative.asA;
+				document.getElementById('iWantTo').innerHTML=jsonData.xref.stories[rowid].narrative.iWantTo;ß
 			    $("#dialog").dialog();
 		   },
     loadonce:true,
